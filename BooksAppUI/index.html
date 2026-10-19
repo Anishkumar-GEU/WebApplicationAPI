@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Book Management System</h1>
+
+        <form id="bookForm">
+            <div class="form-group">
+                <label for="name">Book Name</label>
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Enter book name"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="authorName">Author Name</label>
+                <input
+                    type="text"
+                    id="authorName"
+                    name="authorName"
+                    placeholder="Enter author name"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="price">Price (₹)</label>
+                <input
+                    type="number"
+                    id="price"
+                    name="price"
+                    placeholder="Enter price"
+                    min="0.01"
+                    step="0.01"
+                    required
+                >
+            </div>
+
+            <button type="submit" id="submitBtn">Add Book</button>
+
+            <p id="message" role="status"></p>
+        </form>
+
+        <h2>Available Books</h2>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Book ID</th>
+                        <th>Book Name</th>
+                        <th>Author Name</th>
+                        <th>Price (₹)</th>
+                    </tr>
+                </thead>
+
+                <tbody id="bookTableBody">
+                    <tr>
+                        <td colspan="4">Loading books...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

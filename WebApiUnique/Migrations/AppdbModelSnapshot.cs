@@ -18,6 +18,28 @@ namespace WebApiUnique.Migrations
                 .HasAnnotation("ProductVersion", "7.0.20")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
+            modelBuilder.Entity("WebApiUnique.Models.Books", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Author")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<double>("price")
+                        .HasColumnType("double");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Books");
+                });
+
             modelBuilder.Entity("WebApiUnique.Models.Users", b =>
                 {
                     b.Property<int>("Id")

@@ -12,6 +12,7 @@ namespace WebApiUnique.Models
         }
 
         public DbSet<Users> Users { get; set; }
+        public DbSet<Books> Books { get; set; }
     }
 }
 
