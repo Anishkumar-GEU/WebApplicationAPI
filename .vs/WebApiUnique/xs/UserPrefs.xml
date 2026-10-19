@@ -1,24 +1,23 @@
 ﻿<Properties StartupConfiguration="{0F36562C-D497-496F-B986-0350A75EB2E6}|https">
-  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.WebApiUnique PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.Workbench ActiveDocument="WebApiUnique/Controllers/BooksOpsController.cs">
     <Files>
-      <File FileName="WebApiUnique/Models/Users.cs" Line="15" Column="1" />
-      <File FileName="WebApiUnique/Controllers/UsersOpsController.cs" Line="27" Column="18" />
-      <File FileName="WebApiUnique/Models/Appdb.cs" Line="19" Column="1" />
-      <File FileName="WebApiUnique/Models/Books.cs" Line="14" Column="1" />
-      <File FileName="WebApiUnique/Controllers/BooksOpsController.cs" Line="44" Column="1" />
-      <File FileName="WebApiUnique/Program.cs" Line="40" Column="1" />
+      <File FileName="WebApiUnique/Models/Users.cs" />
+      <File FileName="WebApiUnique/Controllers/UsersOpsController.cs" />
+      <File FileName="WebApiUnique/Models/Appdb.cs" />
+      <File FileName="WebApiUnique/Models/Books.cs" />
+      <File FileName="WebApiUnique/Controllers/BooksOpsController.cs" Line="60" Column="1" />
+      <File FileName="WebApiUnique/Program.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="WebApiUnique">
             <Node name="WebApiUnique">
-              <Node name="Controllers" expanded="True">
+              <Node name="Controllers">
                 <Node name="BooksOpsController.cs" selected="True" />
               </Node>
               <Node name="Models" expanded="True" />
@@ -28,6 +27,7 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.WebApiUnique PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
 </Properties>

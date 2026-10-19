@@ -8,7 +8,7 @@ const submitBtn = document.getElementById("submitBtn");
 // GET: Fetch and display all books
 async function loadBooks() {
     bookTableBody.innerHTML =
-        '<tr><td colspan="4">Loading books...</td></tr>';
+        '<tr><td colspan="5">Loading books...</td></tr>';
 
     try {
         const response = await fetch(API_URL);
@@ -23,7 +23,7 @@ async function loadBooks() {
 
         if (books.length === 0) {
             bookTableBody.innerHTML =
-                '<tr><td colspan="4">No books found.</td></tr>';
+                '<tr><td colspan="5">No books found.</td></tr>';
             return;
         }
 
@@ -49,6 +49,27 @@ async function loadBooks() {
                 row.appendChild(cell);
             });
 
+            // Create the Action cell
+            const actionCell = document.createElement("td");
+
+            // Create the Delete button
+            const deleteBtn = document.createElement("button");
+
+            deleteBtn.type = "button";
+            deleteBtn.textContent = "Delete";
+            deleteBtn.className = "delete-btn";
+
+            // Store the book ID on the button
+            deleteBtn.dataset.id = book.id;
+
+            // Delete the selected book when clicked
+            deleteBtn.addEventListener("click", () => {
+                deleteBook(book.id, deleteBtn);
+            });
+
+            actionCell.appendChild(deleteBtn);
+            row.appendChild(actionCell);
+
             bookTableBody.appendChild(row);
         });
 
@@ -56,7 +77,7 @@ async function loadBooks() {
         console.error("GET API Error:", error);
 
         bookTableBody.innerHTML =
-            '<tr><td colspan="4">Unable to load books. Check API URL, HTTPS certificate, and CORS settings.</td></tr>';
+            '<tr><td colspan="5">Unable to load books. Check API URL, HTTPS certificate, and CORS settings.</td></tr>';
     }
 }
 
@@ -105,6 +126,7 @@ bookForm.addEventListener("submit", async function (event) {
 
         if (!response.ok) {
             const errorText = await response.text();
+
             throw new Error(
                 errorText || `HTTP Error: ${response.status}`
             );
@@ -130,6 +152,53 @@ bookForm.addEventListener("submit", async function (event) {
         submitBtn.textContent = "Add Book";
     }
 });
+
+// DELETE: Delete a book using its ID
+async function deleteBook(id, deleteBtn) {
+    const confirmed = confirm(
+        `Are you sure you want to delete book ID ${id}?`
+    );
+
+    if (!confirmed) {
+        return;
+    }
+
+    message.textContent = "";
+
+    deleteBtn.disabled = true;
+    deleteBtn.textContent = "Deleting...";
+
+    try {
+        // Pass the selected book ID in the API URL
+        const response = await fetch(`${API_URL}/${encodeURIComponent(id)}`, {
+            method: "DELETE"
+        });
+
+        if (!response.ok) {
+            const errorText = await response.text();
+
+            throw new Error(
+                errorText || `HTTP Error: ${response.status}`
+            );
+        }
+
+        message.textContent = `Book ID ${id} deleted successfully!`;
+        message.style.color = "green";
+
+        // Refresh the table after deletion
+        await loadBooks();
+
+    } catch (error) {
+        console.error("DELETE API Error:", error);
+
+        message.textContent =
+            `Unable to delete book ID ${id}. Check the API route and browser Console.`;
+        message.style.color = "red";
+
+        deleteBtn.disabled = false;
+        deleteBtn.textContent = "Delete";
+    }
+}
 
 // Automatically load books when the page opens
 loadBooks();

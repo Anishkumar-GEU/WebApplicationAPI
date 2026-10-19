@@ -11,7 +11,7 @@ body {
 }
 
 .container {
-    max-width: 900px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 30px;
     background-color: white;
@@ -54,7 +54,6 @@ input:focus {
 }
 
 button {
-    width: 100%;
     padding: 13px;
     background-color: #2563eb;
     color: white;
@@ -65,12 +64,38 @@ button {
     cursor: pointer;
 }
 
+#submitBtn {
+    width: 100%;
+}
+
 button:hover {
     background-color: #1d4ed8;
 }
 
 button:disabled {
     background-color: #94a3b8;
+    cursor: not-allowed;
+}
+
+/* Delete button */
+.delete-btn {
+    padding: 8px 14px;
+    background-color: #dc2626;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.delete-btn:hover {
+    background-color: #b91c1c;
+}
+
+.delete-btn:disabled {
+    background-color: #fca5a5;
     cursor: not-allowed;
 }
 
@@ -119,5 +144,10 @@ tbody tr:hover {
     td {
         padding: 10px;
         font-size: 13px;
+    }
+
+    .delete-btn {
+        padding: 7px 10px;
+        font-size: 12px;
     }
 }

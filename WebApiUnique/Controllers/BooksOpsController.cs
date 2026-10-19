@@ -38,6 +38,22 @@ namespace WebApiUnique.Controllers
             _db.SaveChanges();
             return CreatedAtAction(nameof(GetBooks), new { id = book.Id }, book);
         }
+
+        [HttpDelete("{Id}")]
+        public IActionResult DeleteBook(int Id)
+        {
+            if (Id <= 0)
+            {
+                return BadRequest(new { msg = "Invalid Book id" });
+            }
+            var res = _db.Books.FirstOrDefault(book => book.Id == Id);
+            if (res != null)
+            {
+                _db.Books.Remove(res);
+                _db.SaveChanges();
+            }
+            return NoContent();
+        }
     }
 }
 

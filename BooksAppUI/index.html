@@ -49,7 +49,7 @@
 
             <button type="submit" id="submitBtn">Add Book</button>
 
-            <p id="message" role="status"></p>
+            <p id="message" role="status" aria-live="polite"></p>
         </form>
 
         <h2>Available Books</h2>
@@ -62,12 +62,13 @@
                         <th>Book Name</th>
                         <th>Author Name</th>
                         <th>Price (₹)</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
 
                 <tbody id="bookTableBody">
                     <tr>
-                        <td colspan="4">Loading books...</td>
+                        <td colspan="5">Loading books...</td>
                     </tr>
                 </tbody>
             </table>
