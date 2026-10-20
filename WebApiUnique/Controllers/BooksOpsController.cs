@@ -54,6 +54,28 @@ namespace WebApiUnique.Controllers
             }
             return NoContent();
         }
+
+        [HttpPut("{Id}")]
+        public IActionResult UpdateBook(int Id, Books book)
+        {
+            if (Id <= 0)
+            {
+                return BadRequest(new { msg = "Invalid Book id" });
+
+            }
+            if (Id != book.Id)
+            {
+                return BadRequest(new { msg = "Book id mismatched" });
+            }
+
+            var res = _db.Books.FirstOrDefault(x => x.Id == Id);
+            res.Name = book.Name;
+            res.Author = book.Author;
+            res.price = book.price;
+            _db.SaveChanges();
+
+            return CreatedAtAction(nameof(GetBooks), new {id = book.Id}, book);
+        }
     }
 }
 
