@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using WebApiUnique.Models;
+using Microsoft.EntityFrameworkCore;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -22,8 +23,13 @@ namespace WebApiUnique.Controllers
         [HttpGet]
         public IActionResult GetBooks()
         {
+            /*
             var res = _db.Books.ToList();
             return Ok(res); // this will return 200 status code.
+            */
+            string query = "CALL select_books()";
+            var res = _db.Books.FromSqlRaw(query).ToList();
+            return Ok(res);
         }
 
         [HttpPost]

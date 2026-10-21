@@ -1,26 +1,26 @@
 ﻿<Properties StartupConfiguration="{0F36562C-D497-496F-B986-0350A75EB2E6}|https">
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.WebApiUnique PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workbench ActiveDocument="WebApiUnique/Controllers/BooksOpsController.cs">
     <Files>
       <File FileName="WebApiUnique/Models/Users.cs" />
       <File FileName="WebApiUnique/Controllers/UsersOpsController.cs" />
       <File FileName="WebApiUnique/Models/Appdb.cs" />
       <File FileName="WebApiUnique/Models/Books.cs" />
-      <File FileName="WebApiUnique/Controllers/BooksOpsController.cs" Line="58" Column="23" />
-      <File FileName="WebApiUnique/Program.cs" Line="36" Column="1" />
+      <File FileName="WebApiUnique/Controllers/BooksOpsController.cs" Line="34" Column="1" />
+      <File FileName="WebApiUnique/Program.cs" />
+      <File FileName="WebApiUnique/appsettings.json" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="WebApiUnique">
-            <Node name="WebApiUnique">
-              <Node name="Controllers">
+          <Node name="WebApiUnique" expanded="True">
+            <Node name="WebApiUnique" expanded="True">
+              <Node name="Controllers" expanded="True">
                 <Node name="BooksOpsController.cs" selected="True" />
               </Node>
               <Node name="Models" expanded="True" />
@@ -30,4 +30,5 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
 </Properties>
