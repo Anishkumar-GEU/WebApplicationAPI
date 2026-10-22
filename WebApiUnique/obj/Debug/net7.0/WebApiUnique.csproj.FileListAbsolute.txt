@@ -76,3 +76,4 @@
 /Users/anishkumar/Projects/WebApiUnique/WebApiUnique/bin/Debug/net7.0/runtimes/win/lib/net6.0/System.Security.Cryptography.ProtectedData.dll
 /Users/anishkumar/Projects/WebApiUnique/WebApiUnique/bin/Debug/net7.0/runtimes/win/lib/net6.0/System.Windows.Extensions.dll
 /Users/anishkumar/Projects/WebApiUnique/WebApiUnique/obj/Debug/net7.0/WebApiUnique.csproj.CopyComplete
+/Users/anishkumar/Projects/WebApiUnique/WebApiUnique/bin/Debug/net7.0/MySql.Data.dll
