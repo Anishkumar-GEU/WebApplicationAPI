@@ -45,6 +45,47 @@ namespace WebApiUnique.Controllers
             );
             return CreatedAtAction(nameof(GetBooks), new { id = book.Id }, book);
         }
+
+        [HttpPut]
+        public IActionResult UpdateBook(int Id, Books book)
+        {
+            if(Id <= 0)
+            {
+                return BadRequest(new { msg = "Invalid Book Id" });
+            }
+            if(Id != book.Id)
+            {
+                return BadRequest(new { msg = "Book Id Mismatched" });
+            }
+            string query = "CALL update_book(@Id, @Name, @Author, @Price)";
+
+            MySqlParameter[] sqlpara =
+            {
+                new MySqlParameter("@Id",book.Id),
+                new MySqlParameter("@Name", book.Name),
+                new MySqlParameter("@Author", book.Author),
+                new MySqlParameter("@Price", book.price)
+            };
+            _db.Database.ExecuteSqlRaw(query, sqlpara);
+
+            return CreatedAtAction(nameof(GetBooks), new { id = book.Id }, book);
+        }
+
+        [HttpDelete]
+        public IActionResult DeleteBook(int Id)
+        {
+            if (Id <= 0)
+            {
+                return BadRequest(new { msg = "Invalid Book Id" });
+            }
+            string query = "CALL delete_book(@Id)";
+            MySqlParameter[] sqlpara =
+            {
+                new MySqlParameter("@Id",Id)
+            };
+            _db.Database.ExecuteSqlRaw(query, sqlpara);
+            return NoContent();
+        }
         
     }
 }
