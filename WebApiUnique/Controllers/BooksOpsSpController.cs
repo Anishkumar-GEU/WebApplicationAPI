@@ -87,6 +87,22 @@ namespace WebApiUnique.Controllers
             return NoContent();
         }
         
+        [HttpGet("GetBookById")]
+        public IActionResult GetBookById(int Id)
+        {
+            if (Id <= 0)
+            {
+                return BadRequest(new { msg = "Invalid Book Id" });
+            }
+            string query = "CALL get_book_by_id(@Id)";
+            MySqlParameter[] sqlpara =
+            {
+                new MySqlParameter("@Id",Id)
+            };
+            var res = _db.Books.FromSqlRaw(query, sqlpara);
+            return Ok(res);
+        }
+        
     }
 }
 
